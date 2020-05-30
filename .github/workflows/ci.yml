@@ -3,20 +3,15 @@ name: CI
 on: [push]
 
 jobs:
+  build:
 
-    lint:
-            runs-on: ubuntu-latest
-
-            steps:
-                    - uses: actions/checkout@v1
-                    - name: Runs linter
-                     run: npm run lint
-
-
-    build:
-            runs-on: ubuntu-latest
-            steps:
-                    - uses: actions/checkout@v1
-                    - name: Runs build
-                     run: npm run build
-
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run a one-line script
+      run: echo Hello, world!
+    - name: Run a multi-line script
+      run: |
+        echo Add other actions to build,
+        echo test, and deploy your project.
