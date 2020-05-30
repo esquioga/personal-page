@@ -8,13 +8,15 @@ jobs:
             runs-on: ubuntu-latest
 
             steps:
-                   - name: Runs linter
-                    run: npm run lint
+                    - uses: actions/checkout@v1
+                    - name: Runs linter
+                     run: npm run lint
 
 
     build:
             runs-on: ubuntu-latest
             steps:
-                   - name: Runs build
-                    run: npm run build
+                    - uses: actions/checkout@v1
+                    - name: Runs build
+                     run: npm run build
 
