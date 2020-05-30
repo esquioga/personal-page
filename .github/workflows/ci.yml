@@ -8,11 +8,13 @@ jobs:
             runs-on: ubuntu-latest
 
             steps:
+                   - name: Runs linter
                     run: npm run lint
 
 
     build:
             runs-on: ubuntu-latest
             steps:
+                   - name: Runs build
                     run: npm run build
 
