@@ -13,3 +13,14 @@ jobs:
       run: |
         npm i
         npm run lint
+   
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Builds application
+      run: |
+        npm i
+        npm run build
