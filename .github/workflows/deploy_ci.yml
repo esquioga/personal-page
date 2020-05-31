@@ -6,8 +6,14 @@ on:
       - master
 
 jobs:
+  install-push-dir:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@master
+        run: npm i push-dir
+
   deploy:
-    needs: build
+    needs: [build, install-push-dir]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@master
@@ -16,6 +22,4 @@ jobs:
           path: dist
       - uses: actions/checkout@v2
       - name: Builds application
-        run: |
-          npm i push-dir
-          npm run deploy
+        run: npm run deploy
