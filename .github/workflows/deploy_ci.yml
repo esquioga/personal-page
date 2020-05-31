@@ -13,7 +13,7 @@ jobs:
       - uses: actions/download-artifact@master
         with:
           name: artifact
-            path: dist
+          path: dist
       - uses: actions/checkout@v2
       - name: Builds application
         run: |
