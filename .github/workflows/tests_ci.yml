@@ -1,0 +1,15 @@
+name: TEST
+
+on: [push]
+
+jobs:
+  lint:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Runs linter
+      run: |
+        npm i
+        npm run lint
