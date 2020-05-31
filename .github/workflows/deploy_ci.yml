@@ -9,7 +9,8 @@ jobs:
   install-push-dir:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@master
+      - uses: actions/checkout@v2
+      - name: Installs push dir
         run: npm i push-dir
 
   deploy:
