@@ -15,6 +15,6 @@ jobs:
           npm i
           npm run build
       - uses: actions/upload-artifact@master
-          with:
-            name: artifact
-            path: dist
+        with:
+          name: artifact
+          path: dist
