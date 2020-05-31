@@ -1,0 +1,21 @@
+name: DEPLOY
+
+on: 
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@master
+          with:
+              name: artifact
+              path: dist
+      - uses: actions/checkout@v2
+      - name: Builds application
+        run: |
+          npm i push-dir
+          npm run deploy
