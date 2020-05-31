@@ -6,15 +6,25 @@ on:
       - master
 
 jobs:
-  install-push-dir:
+
+  build:
+
     runs-on: ubuntu-latest
+    
     steps:
       - uses: actions/checkout@v2
-      - name: Installs push dir
-        run: npm i push-dir
+      - name: Builds application
+        run: |
+          npm i
+          npm run build
+      - uses: actions/upload-artifact@master
+        with:
+          name: artifact
+          path: dist
+
 
   deploy:
-    needs: [build, install-push-dir]
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@master
@@ -23,4 +33,6 @@ jobs:
           path: dist
       - uses: actions/checkout@v2
       - name: Builds application
-        run: npm run deploy
+        run: |
+          npm i push-dir
+          npm run deploy
