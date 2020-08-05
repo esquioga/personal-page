@@ -7,7 +7,7 @@
         <v-divider/>
         <v-card-text>
           <v-container grid-list-md text-xs-center>
-            <v-layout row justify-space-around align-center>
+            <v-layout row justify-center align-center>
               <v-flex xs4>
                 <v-img width="240px" height="240px" src="./assets/img/avatar-placeholder.png"/>
               </v-flex>
@@ -23,7 +23,7 @@
           </v-container>          
         </v-card-text>
         <v-card-title class="section-title">What I do </v-card-title>
-        <div class="divider"/>
+        <div class="custom-divider"/>
       </v-card>
     </v-container>
   </v-app>
@@ -33,7 +33,6 @@
 export default {
   name: 'App',
   data: () => ({
-    //s
   }),
 };
 </script>
@@ -48,7 +47,7 @@ export default {
     .section-title {
       padding: 0px 16px;
     }
-    .divider {
+    .custom-divider {
       width: 36px;
       margin: 0px 16px;
       padding: 0px;
