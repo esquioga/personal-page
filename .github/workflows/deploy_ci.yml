@@ -13,6 +13,8 @@ jobs:
     
     steps:
       - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
       - name: Builds application
         run: |
           npm i
@@ -31,8 +33,9 @@ jobs:
         with:
           name: artifact
           path: dist
-      - uses: actions/checkout@v2
-      - name: Builds application
-        run: |
-          npm i push-dir
-          npm run deploy
+      - name: Deploy to github pages
+        uses: JamesIves/github-pages-deploy-action@3.5.9
+        with:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: dist
